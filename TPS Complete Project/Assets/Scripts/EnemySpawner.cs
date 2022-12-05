@@ -46,11 +46,11 @@ public class EnemySpawner : MonoBehaviour
         // 웨이브 1 증가
         wave++;
 
-        // 현재 웨이브 * 1.5에 반올림 한 개수 만큼 적을 생성
-        var spawnCount = Mathf.RoundToInt(wave * 5f);
+        // 웨이브당 적수 조절
+        var spawnCount = Mathf.RoundToInt((wave + 1) * 2f);
 
         // spawnCount - 1 만큼 적을 생성
-        for (var i = 0; i < spawnCount - 1; i++)
+        for (var i = 0; i < spawnCount; i++)
         {
             // 적의 세기를 0%에서 100% 사이에서 랜덤 결정
             var enemyIntensity = Random.Range(0f, 1f);
@@ -80,15 +80,15 @@ public class EnemySpawner : MonoBehaviour
                 boss.Setup(health, damage, speed,speed * 0.3f, Color.white);
                 break;
             case 3:
-                health = 800f;
+                health = 1000f;
                 damage = 120f;
-                speed = 10f;
+                speed = 8f;
                 boss.Setup(health, damage, speed,speed * 0.3f, Color.white);
                 break;
             case 4:
-                health = 1000f;
+                health = 2000f;
                 damage = 150f;
-                speed = 10f;
+                speed = 6f;
                 boss.Setup(health, damage, speed,speed * 0.3f, Color.white);
                 break;
         }
@@ -120,7 +120,7 @@ public class EnemySpawner : MonoBehaviour
         var spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
 
         //일반몹 생성
-        var selectEnemy = enemyPrefab[Random.Range(0, 1)];
+        var selectEnemy = enemyPrefab[Random.Range(0, enemyPrefab.Length)];
 
         // 적 프리팹으로부터 적 생성
         var enemy = Instantiate(selectEnemy, spawnPoint.position, spawnPoint.rotation);
