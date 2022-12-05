@@ -1698,8 +1698,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 100
-  deathClip: {fileID: 0}
-  hitClip: {fileID: 0}
+  deathClip: {fileID: 8300000, guid: f432291212a9c48ba829d8cf3f1a678c, type: 3}
+  hitClip: {fileID: 8300000, guid: 48d89c9feb4d24625be3ef9ec3487be3, type: 3}
 --- !u!114 &807482550267929669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1712,7 +1712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46536d91935cc452a9f552695ffec782, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPickupClip: {fileID: 0}
+  itemPickupClip: {fileID: 8300000, guid: 0107881485be049089ce7a8ca3ed5089, type: 3}
   lifeRemains: 3
 --- !u!114 &807482550267929668
 MonoBehaviour:
@@ -1729,7 +1729,7 @@ MonoBehaviour:
   gun: {fileID: 7074543816873133022}
   excludeTarget:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
 --- !u!114 &807482550267929667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2313,6 +2313,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gun
       objectReference: {fileID: 0}
+    - target: {fileID: 7573107372154840279, guid: e0340c77c6f6e4b4abdcff780b356124,
+        type: 3}
+      propertyPath: leftHandMount
+      value: 
+      objectReference: {fileID: 7074543815376422334}
     - target: {fileID: 7573107372154840280, guid: e0340c77c6f6e4b4abdcff780b356124,
         type: 3}
       propertyPath: targetToFollow
@@ -2340,6 +2345,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0340c77c6f6e4b4abdcff780b356124, type: 3}
+--- !u!4 &7074543815376422334 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7573107370573980343, guid: e0340c77c6f6e4b4abdcff780b356124,
+    type: 3}
+  m_PrefabInstance: {fileID: 807482548933797641}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7074543816873133021 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7573107372154840276, guid: e0340c77c6f6e4b4abdcff780b356124,

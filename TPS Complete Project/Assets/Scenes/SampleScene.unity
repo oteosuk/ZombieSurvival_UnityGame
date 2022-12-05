@@ -3241,12 +3241,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 613294734}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &616655535 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7074543815376422334, guid: 5d8dda25d1525b5439352e1d201c594a,
-    type: 3}
-  m_PrefabInstance: {fileID: 807482548913662751}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &619801538
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12193,31 +12187,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Soldier
       objectReference: {fileID: 0}
-    - target: {fileID: 807482550267831106, guid: 5d8dda25d1525b5439352e1d201c594a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 807482550267929668, guid: 5d8dda25d1525b5439352e1d201c594a,
-        type: 3}
-      propertyPath: excludeTarget.m_Bits
-      value: 256
-      objectReference: {fileID: 0}
-    - target: {fileID: 807482550267929669, guid: 5d8dda25d1525b5439352e1d201c594a,
-        type: 3}
-      propertyPath: itemPickupClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 0107881485be049089ce7a8ca3ed5089, type: 3}
-    - target: {fileID: 807482550267929670, guid: 5d8dda25d1525b5439352e1d201c594a,
-        type: 3}
-      propertyPath: hitClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 48d89c9feb4d24625be3ef9ec3487be3, type: 3}
-    - target: {fileID: 807482550267929670, guid: 5d8dda25d1525b5439352e1d201c594a,
-        type: 3}
-      propertyPath: deathClip
-      value: 
-      objectReference: {fileID: 8300000, guid: f432291212a9c48ba829d8cf3f1a678c, type: 3}
     - target: {fileID: 807482550268067490, guid: 5d8dda25d1525b5439352e1d201c594a,
         type: 3}
       propertyPath: m_RootOrder
@@ -12273,11 +12242,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7074543816873133022, guid: 5d8dda25d1525b5439352e1d201c594a,
-        type: 3}
-      propertyPath: leftHandMount
-      value: 
-      objectReference: {fileID: 616655535}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d8dda25d1525b5439352e1d201c594a, type: 3}
 --- !u!1001 &824135605476716928
