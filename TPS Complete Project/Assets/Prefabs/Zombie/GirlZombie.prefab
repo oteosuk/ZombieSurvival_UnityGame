@@ -604,7 +604,7 @@ MonoBehaviour:
   startingHealth: 100
   attackRoot: {fileID: 4106566694901792502}
   eyeTransform: {fileID: 525408212815901805}
-  hitClip: {fileID: 8300000, guid: 6756d3aaf841d344f8c434f61b3bee0e, type: 3}
+  hitClip: {fileID: 8300000, guid: fa6655fa844df494fb3bd2e07576e4e2, type: 3}
   deathClip: {fileID: 8300000, guid: a959c5ec29fb1fd47a1a430919f34c99, type: 3}
   runSpeed: 8
   turnSmoothTime: 0.1
