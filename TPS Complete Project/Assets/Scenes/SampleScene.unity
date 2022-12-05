@@ -12280,6 +12280,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7074543816873133022, guid: 5d8dda25d1525b5439352e1d201c594a,
+        type: 3}
+      propertyPath: ammoRemain
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 7074543816873133022, guid: 5d8dda25d1525b5439352e1d201c594a,
+        type: 3}
+      propertyPath: magCapacity
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d8dda25d1525b5439352e1d201c594a, type: 3}
 --- !u!1001 &824135605476716928

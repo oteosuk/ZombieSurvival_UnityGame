@@ -58,7 +58,7 @@ public class EnemySpawner : MonoBehaviour
             CreateEnemy(enemyIntensity);
         }
 
-        // wave마다 한명의 보스 생성(우선 2, 3, 4라운드까지만)
+        // wave2번째부터 wave마다 한명의 보스 생성(우선 2, 3, 4라운드까지만)
         if(2 <= wave || wave<=4) CreateBoss(wave);
     }
 
