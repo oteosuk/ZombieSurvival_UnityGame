@@ -1697,7 +1697,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eca01a6268184ae884e138a9462f285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 100
+  startingHealth: 300
   deathClip: {fileID: 8300000, guid: f432291212a9c48ba829d8cf3f1a678c, type: 3}
   hitClip: {fileID: 8300000, guid: 48d89c9feb4d24625be3ef9ec3487be3, type: 3}
 --- !u!114 &807482550267929669
@@ -2312,6 +2312,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gun
+      objectReference: {fileID: 0}
+    - target: {fileID: 7573107372154840279, guid: e0340c77c6f6e4b4abdcff780b356124,
+        type: 3}
+      propertyPath: ammoRemain
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 7573107372154840279, guid: e0340c77c6f6e4b4abdcff780b356124,
+        type: 3}
+      propertyPath: magCapacity
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7573107372154840279, guid: e0340c77c6f6e4b4abdcff780b356124,
         type: 3}

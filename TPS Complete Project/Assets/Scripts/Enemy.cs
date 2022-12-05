@@ -101,9 +101,10 @@ public class Enemy : LivingEntity
         this.patrolSpeed = patrolSpeed;
         
         this.damage = damage;
-        
+
         // 렌더러가 사용중인 머테리얼의 컬러를 변경, 외형 색이 변함
         skinRenderer.material.color = skinColor;
+        
     }
 
     private void Start()

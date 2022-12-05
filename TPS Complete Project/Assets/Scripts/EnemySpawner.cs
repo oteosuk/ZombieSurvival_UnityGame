@@ -5,23 +5,23 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     private readonly List<Enemy> enemies = new List<Enemy>(); // 생성된 적들을 담는 리스트
-
+    
+    public Enemy[] enemyPrefab; // 생성할 적 AI 배열 여러개
+    public Transform[] spawnPoints; // 적 AI를 소환할 위치들
     public float damageMax = 40f; // 최대 공격력
     public float damageMin = 20f; // 최소 공격력
-    public Enemy enemyPrefab; // 생성할 적 AI
-
     public float healthMax = 200f; // 최대 체력
     public float healthMin = 100f; // 최소 체력
-
-    public Transform[] spawnPoints; // 적 AI를 소환할 위치들
-
     public float speedMax = 12f; // 최대 속도
     public float speedMin = 3f; // 최소 속도
-
     public Color strongEnemyColor = Color.red; // 강한 적 AI가 가지게 될 피부색
-    private int wave; // 현재 웨이브
+    
+    public Enemy[] bossPrefab; // 보스들
+    public Transform bossSpawnPoint; // 보스 소환활 위치
 
-    private void Update()
+    private int wave; // 현재 웨이브(이렇게 값을 안넣어주면 아마 0에서 시작하는거 같다!)
+
+    private void Update() // UI를 갱신하고 다음 Wave 실행하는 부분!!
     {
         // 게임 오버 상태일때는 생성하지 않음
         if (GameManager.Instance != null && GameManager.Instance.isGameover) return;
@@ -49,14 +49,60 @@ public class EnemySpawner : MonoBehaviour
         // 현재 웨이브 * 1.5에 반올림 한 개수 만큼 적을 생성
         var spawnCount = Mathf.RoundToInt(wave * 5f);
 
-        // spawnCount 만큼 적을 생성
-        for (var i = 0; i < spawnCount; i++)
+        // spawnCount - 1 만큼 적을 생성
+        for (var i = 0; i < spawnCount - 1; i++)
         {
             // 적의 세기를 0%에서 100% 사이에서 랜덤 결정
             var enemyIntensity = Random.Range(0f, 1f);
             // 적 생성 처리 실행
             CreateEnemy(enemyIntensity);
         }
+
+        // wave마다 한명의 보스 생성(우선 2, 3, 4라운드까지만)
+        if(2 <= wave || wave<=4) CreateBoss(wave);
+    }
+
+    // 보스를 생성한다.
+    private void CreateBoss(int wave)
+    {
+        //보스몹 선택
+        var selectBoss = bossPrefab[wave - 2];
+
+        // 보스 프리팹으로부터 보스 생성
+        var boss = Instantiate(selectBoss, bossSpawnPoint.position, bossSpawnPoint.rotation);
+
+        // 보스 능력치
+        switch(wave){
+            case 2:
+                var health = 500f;
+                var damage = 100f;
+                var speed = 10f;
+                boss.Setup(health, damage, speed,speed * 0.3f, Color.white);
+                break;
+            case 3:
+                health = 800f;
+                damage = 120f;
+                speed = 10f;
+                boss.Setup(health, damage, speed,speed * 0.3f, Color.white);
+                break;
+            case 4:
+                health = 1000f;
+                damage = 150f;
+                speed = 10f;
+                boss.Setup(health, damage, speed,speed * 0.3f, Color.white);
+                break;
+        }
+
+        // 생성된 적을 리스트에 추가
+        enemies.Add(boss);
+
+        // 적의 onDeath 이벤트에 익명 메서드 등록
+        // 사망한 적을 리스트에서 제거
+        boss.OnDeath += () => enemies.Remove(boss);
+        // 사망한 적을 10 초 뒤에 파괴
+        boss.OnDeath += () => Destroy(boss.gameObject, 10f);
+        // 적 사망시 점수 상승
+        boss.OnDeath += () => GameManager.Instance.AddScore(3000);
     }
 
     // 적을 생성하고 생성한 적에게 추적할 대상을 할당
@@ -73,8 +119,11 @@ public class EnemySpawner : MonoBehaviour
         // 생성할 위치를 랜덤으로 결정
         var spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
 
+        //일반몹 생성
+        var selectEnemy = enemyPrefab[Random.Range(0, 1)];
+
         // 적 프리팹으로부터 적 생성
-        var enemy = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+        var enemy = Instantiate(selectEnemy, spawnPoint.position, spawnPoint.rotation);
 
         // 생성한 적의 능력치와 추적 대상 설정
         enemy.Setup(health, damage, speed,speed * 0.3f, skinColor);
